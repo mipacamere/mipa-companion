@@ -1,0 +1,1309 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0&display=swap");
+
+/* Modern Theme with Gradient Accents */
+:root {
+  /* Primary Colors - Darkened petroleum */
+  --primary: #25685d; /* Darkened from #4eb8a5 */
+  --primary-dark: #247063; /* Darkened from #38a090 */
+  --primary-light: #388375; /* Darkened from #60c8b6 */
+  --primary-gradient: linear-gradient(135deg, #2a8676, #3a9989);
+
+  /* Secondary Colors */
+  --secondary: #fb7185;
+  --secondary-dark: #e11d48;
+  --secondary-light: #fda4af;
+  --secondary-gradient: linear-gradient(135deg, #fb7185, #f43f5e);
+
+  /* Semantic Colors */
+  --success: #10b981;
+  --success-light: #a7f3d0;
+  --danger: #ef4444;
+  --danger-light: #fecaca;
+  --warning: #f59e0b;
+
+  /* Neutral Colors */
+  --background: #ffffff;
+  --surface: #ffffff;
+  --surface-hover: #f1f5f9;
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+  --text-tertiary: #94a3b8;
+  --border: #e2e8f0;
+
+  /* Elements */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --radius-sm: 8px;
+  --radius: 12px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+
+  /* Animation */
+  --transition: all 0.2s ease;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #f0f0f0; /* Light grey background */
+  color: var(--text-primary);
+  font-family: "Inter", -apple-system, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+}
+
+body {
+  background-color: #f0f0f0;
+  background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%234EB8A5' fill-opacity='0.03' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Main Container */
+.app {
+  max-width: 100%;
+  width: 100%;
+  min-height: 100vh;
+  margin: 0 auto;
+  background-color: #f0f0f0; /* Light grey background */
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* Header & Navigation */
+.header {
+  background: var(--primary-gradient);
+  padding: 16px 0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: var(--shadow);
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 700;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo:before {
+  content: "hotel";
+  font-family: "Material Symbols Rounded";
+}
+
+/* Language Switcher - Changed from round to square */
+.language-switcher {
+  position: relative;
+  z-index: 100;
+}
+
+.language-dropdown {
+  background-color: rgba(37, 37, 37, 0.15);
+  backdrop-filter: blur(10px);
+  color: #000000;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: var(--radius-sm); /* Changed from radius-full to radius-sm */
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+  width: 180px;
+  outline: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px;
+  padding-right: 36px;
+}
+
+.language-dropdown:focus {
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.25);
+}
+
+/* Tab Navigation - Changed to look like folder tabs */
+.tabs {
+  margin-top: 24px;
+  width: 100%;
+  background-color: transparent; /* Make it transparent so we can see structured borders */
+  margin-bottom: 24px;
+  position: relative;
+}
+
+/* Style for tab headers - removing bottom border radius for active tab */
+.tab-headers {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+  background-color: transparent;
+  padding: 0;
+  border-radius: 0;
+  box-shadow: none;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  margin-bottom: 0;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.tab-headers button {
+  display: flex;
+  flex-direction: column; /* Stack icon and text vertically */
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 16px; /* Adjusted padding for vertical layout */
+  background-color: #e2e8f0;
+  border: 1px solid var(--border);
+  border-bottom: none;
+  border-radius: 12px 12px 0 0;
+  cursor: pointer;
+  transition: var(--transition);
+  white-space: nowrap;
+  color: var(--text-secondary);
+  font-weight: 600;
+  font-size: 14px; /* Slightly smaller font */
+  min-width: 90px; /* Ensure minimum width */
+  position: relative;
+  margin-bottom: 0px;
+  box-shadow: 0 -3px 6px rgba(0, 0, 0, 0.05);
+  flex: 1; /* Distribute space evenly */
+  text-align: center;
+}
+
+.tab-headers button .tab-icon {
+  font-family: "Material Symbols Rounded";
+  font-size: 22px;
+  display: block; /* Ensure icon is always displayed */
+}
+
+/* Regular active tab (petroleum color) */
+.tab-headers button.active {
+  background-color: var(--primary);
+  color: white;
+  border-color: var(--primary);
+  border-bottom: none;
+  border-radius: 12px 12px 0 0; /* Remove bottom radius */
+  position: relative;
+  margin-bottom: 0;
+}
+
+/* Special styling for the checkout tab when active */
+.tab-headers button.active[data-tab="checkout"] {
+  background-color: var(--danger);
+  border-color: var(--danger);
+}
+
+.tab-content.checkout-active {
+  border-color: var(--danger);
+}
+
+.tab-headers button:hover:not(.active) {
+  background-color: #f1f5f9;
+  color: var(--text-primary);
+  transform: translateY(-2px); /* Slight lift on hover */
+}
+
+/* Use explicit border-radius values for each corner to ensure top-right is completely squared */
+.tab-content {
+  background-color: var(--surface);
+  border-radius: 0 0 var(--radius) var(--radius); /* Set top-left and top-right to 0 */
+  padding: 32px;
+  box-shadow: var(--shadow);
+  border: 8px solid var(--primary); /* Changed to petroleum border */
+  position: relative;
+  z-index: 1;
+}
+
+.tab-content h2 {
+  color: var(--text-primary);
+  margin-bottom: 20px;
+  font-weight: 700;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px; /* Increased spacing between icon and text */
+  position: relative; /* Needed for the accent line positioning */
+  padding-bottom: 12px; /* Space for the accent line */
+}
+
+/* Add the new bottom accent line to all tab headings */
+.tab-content h2:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: var(--primary-light);
+  border-radius: 2px;
+}
+
+/* Add the tab icons as separate elements with proper spacing */
+.tab-content h2 .tab-icon {
+  font-family: "Material Symbols Rounded";
+  color: var(--primary);
+  font-size: 24px;
+  flex-shrink: 0; /* Prevents icon from shrinking */
+}
+
+/* Card Component */
+.card {
+  background-color: var(--surface);
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  margin-bottom: 16px;
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Check-in Buttons */
+.check-in-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.check-in-button {
+  position: relative;
+  width: 100%;
+  padding: 16px 20px;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: var(--transition);
+  font-weight: 600;
+  font-size: 16px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  z-index: 1;
+}
+
+.check-in-button:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: var(--transition);
+  z-index: -1;
+}
+
+/* Keep blue for the first button */
+.check-in-button:nth-child(1) {
+  background: linear-gradient(135deg, #2563eb, #3b82f6); /* Blue gradient */
+  color: white;
+}
+
+.check-in-button:nth-child(1):before {
+  background: linear-gradient(
+    135deg,
+    #1d4ed8,
+    #2563eb
+  ); /* Darker blue on hover */
+}
+
+.check-in-button:nth-child(2) {
+  background: var(--success);
+  color: white;
+}
+
+.check-in-button:nth-child(2):before {
+  background: #059669;
+}
+
+.check-in-button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.check-in-button:hover:before {
+  opacity: 1;
+}
+
+/* Map Section - Keep blue border */
+.map-container {
+  width: 100%;
+  margin-bottom: 24px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.3); /* Blue frame color */
+  position: relative;
+  border: 2px solid #3b82f6; /* Blue border */
+}
+
+.map-iframe {
+  width: 100%;
+  height: 350px;
+  border: none;
+  display: block;
+}
+
+.map-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(
+    135deg,
+    #4eb8a5,
+    #60c8b6
+  ); /* Petroleum gradient */
+  color: white;
+  text-decoration: none;
+  border-radius: var(--radius);
+  margin-top: 16px;
+  transition: var(--transition);
+  font-weight: 600;
+  font-size: 16px;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.map-button:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    #38a090,
+    #4eb8a5
+  ); /* Darker petroleum for hover */
+  opacity: 0;
+  transition: var(--transition);
+  z-index: -1;
+}
+
+.map-button:after {
+  content: "location_on";
+  font-family: "Material Symbols Rounded";
+}
+
+.map-button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.map-button:hover:before {
+  opacity: 1;
+}
+
+/* Checkout Section - Modified to match other tabs */
+/* Remove the extra container/section styling */
+.checkout-section {
+  /* Removed styles that created a nested section */
+}
+
+/* Icon for checkout headings */
+.tab-content h2 .checkout-icon {
+  font-family: "Material Symbols Rounded";
+  color: var(--success);
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+/* Checkout list items */
+.tab-content ul.checkout-list {
+  list-style-type: none;
+  margin-bottom: 20px;
+  margin-top: 24px;
+}
+
+.tab-content ul.checkout-list li {
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+
+.tab-content ul.checkout-list li:before {
+  content: "check_circle";
+  font-family: "Material Symbols Rounded";
+  color: var(--success);
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.checkout-button {
+  width: 100%;
+  padding: 16px;
+  background-color: var(--danger);
+  color: white;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  margin-top: 24px;
+  transition: var(--transition);
+  font-weight: 600;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.checkout-button:before {
+  content: "logout";
+  font-family: "Material Symbols Rounded";
+  font-size: 20px;
+}
+
+.checkout-button:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #b91c1c;
+  opacity: 0;
+  transition: var(--transition);
+  z-index: -1;
+}
+
+.checkout-button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.checkout-button:hover:after {
+  opacity: 1;
+}
+
+/* Button Group */
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.button-group button {
+  padding: 12px 20px;
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: var(--transition);
+  font-weight: 500;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.button-group button:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-dark);
+  opacity: 0;
+  transition: var(--transition);
+  z-index: -1;
+}
+
+.button-group button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+.button-group button:hover:after {
+  opacity: 1;
+}
+
+.button-group button.disabled {
+  background-color: var(--text-tertiary);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Breakfast Section - INTEGRATED STYLING */
+.breakfast-section {
+  margin-bottom: 24px;
+}
+
+.section-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(
+    --primary
+  ); /* Changed from blue to petroleum color to match theme */
+  margin-top: 20px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.section-title:before {
+  content: "restaurant_menu";
+  font-family: "Material Symbols Rounded";
+  font-size: 22px;
+}
+
+.section-divider {
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    var(--primary),
+    transparent
+  ); /* Changed from blue to petroleum */
+  margin-bottom: 16px;
+}
+
+/* Breakfast Items */
+.breakfast-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  margin-bottom: 16px;
+  background-color: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border);
+  transition: var(--transition);
+}
+
+.breakfast-item:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+/* Modified text container to accommodate title and description */
+.breakfast-item-text {
+  flex-grow: 1;
+}
+
+/* Bold title styling */
+.breakfast-item-title,
+.item-name {
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+/* Lighter description styling */
+.breakfast-item-description,
+.item-description {
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.4;
+  max-width: 70%;
+  font-style: italic;
+}
+
+.item-price {
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-top: 4px;
+}
+
+.breakfast-item-controls,
+.item-quantity {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.breakfast-item-counter {
+  font-weight: 600;
+  min-width: 30px;
+  text-align: center;
+  color: var(--text-primary);
+}
+
+/* Modified breakfast buttons with + and - signs */
+.breakfast-item button,
+.item-quantity button {
+  padding: 10px 16px;
+  background-color: var(--primary-light);
+  color: var(--primary-dark);
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: var(--transition);
+  font-weight: 500;
+  width: auto;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+}
+
+/* Support for round buttons (from new style) */
+.item-quantity button {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: var(--primary-light);
+  border: 1px solid var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.breakfast-item button:hover,
+.item-quantity button:hover {
+  background-color: var(--primary);
+  color: white;
+  transform: scale(1.05);
+}
+
+/* First button with minus sign */
+.breakfast-item button:first-of-type:before,
+.item-quantity button:first-of-type:before {
+  content: "remove";
+  font-family: "Material Symbols Rounded";
+  font-size: 18px;
+}
+
+/* Second button with plus sign */
+.breakfast-item button:last-of-type:before,
+.item-quantity button:last-of-type:before {
+  content: "add";
+  font-family: "Material Symbols Rounded";
+  font-size: 18px;
+}
+
+/* Total section styling */
+.total-section {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 0;
+  border-top: 2px solid var(--primary); /* Changed from blue to petroleum */
+  margin-top: 16px;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+/* Breakfast Order Button */
+.breakfast-order-button {
+  width: 100%;
+  padding: 16px;
+  background: var(--primary-gradient); /* Changed to petroleum gradient */
+  color: white;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  margin-top: 20px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 16px;
+  transition: var(--transition);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.breakfast-order-button:before {
+  content: "restaurant";
+  font-family: "Material Symbols Rounded";
+}
+
+.breakfast-order-button:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-dark);
+  opacity: 0;
+  transition: var(--transition);
+  z-index: -1;
+}
+
+.breakfast-order-button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.breakfast-order-button:hover:after {
+  opacity: 1;
+}
+
+/* Image Preview */
+.image-preview {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.preview-item {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background-color: var(--surface);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.preview-item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.preview-item img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.preview-item-content {
+  padding: 12px;
+}
+
+.preview-item button {
+  background-color: var(--danger-light);
+  color: var(--danger);
+  border: none;
+  padding: 8px 12px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-weight: 500;
+  width: 100%;
+}
+
+.preview-item button:before {
+  content: "delete";
+  font-family: "Material Symbols Rounded";
+  font-size: 18px;
+}
+
+.preview-item button:hover {
+  background-color: var(--danger);
+  color: white;
+}
+
+/* Forms */
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background-color: var(--surface);
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  color: var(--text-primary);
+  transition: var(--transition);
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(78, 184, 165, 0.15); /* Updated box shadow color */
+}
+
+select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px;
+  padding-right: 40px;
+}
+
+/* Footer */
+.footer {
+  background-color: var(--text-primary);
+  color: white;
+  padding: 32px 0;
+  margin-top: auto;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-logo {
+  font-size: 20px;
+  font-weight: 700;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-logo:before {
+  content: "hotel";
+  font-family: "Material Symbols Rounded";
+}
+
+.footer-links {
+  display: flex;
+  gap: 24px;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+  transition: var(--transition);
+  opacity: 0.7;
+}
+
+.footer-links a:hover {
+  opacity: 1;
+}
+
+.footer-copyright {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+/* Directions Section - Modified to match other tabs */
+/* Remove the extra container/section styling */
+.directions-section {
+  /* Removed styles that created a nested section */
+}
+
+/* Main chapter styling - integrated into tab content */
+.direction-chapter {
+  margin-bottom: 30px;
+}
+
+/* Updated heading for direction chapters */
+.tab-content .direction-chapter h2 {
+  /* All heading styles are inherited from .tab-content h2 */
+}
+
+.tab-content .direction-chapter h2 .tab-icon {
+  color: #3b82f6; /* Keep the blue color for direction icons */
+}
+
+/* Subcategory styling */
+.direction-subcategory {
+  margin-bottom: 20px;
+}
+
+.direction-subcategory h3 {
+  color: var(--text-primary);
+  margin-bottom: 16px;
+  font-size: 18px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  padding-bottom: 8px;
+}
+
+.direction-subcategory h3 .tab-icon {
+  font-family: "Material Symbols Rounded";
+  color: #3b82f6;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.direction-subcategory h3:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 70%;
+  height: 2px;
+  background-color: var(--primary-light);
+  opacity: 0.7;
+  border-radius: 2px;
+}
+
+/* Simple color accents for specific direction sections */
+/* Add a colored dot before specific subtitles */
+.direction-subcategory h3[data-title="How to reach the property"]::before,
+.direction-subcategory h3[data-title="Leaving Milazzo"]::before {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+/* Blue dot for "How to reach the property" */
+.direction-subcategory h3[data-title="How to reach the property"]::before {
+  background-color: #3b82f6; /* Blue accent */
+}
+
+/* Petroleum dot for "Leaving Milazzo" */
+.direction-subcategory h3[data-title="Leaving Milazzo"]::before {
+  background-color: var(--primary); /* Petroleum accent */
+}
+
+/* List styling with dots */
+.direction-list {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin-bottom: 16px;
+}
+
+.direction-list li {
+  margin-bottom: 8px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  padding-left: 4px;
+}
+
+/* Nested list styling */
+.direction-list li ul {
+  list-style-type: circle;
+  padding-left: 20px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+a {
+  color: #2e8175; /* Changed from dark red to darker petroleum */
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.link-item a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background: linear-gradient(
+    135deg,
+    #4eb8a5,
+    #60c8b6
+  ); /* Changed to petroleum gradient */
+  color: white;
+  text-decoration: none;
+  border-radius: var(--radius);
+  font-weight: 500;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.link-item a:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    #38a090,
+    #73d6c4
+  ); /* Darker to lighter petroleum for hover */
+  opacity: 0;
+  transition: var(--transition);
+  z-index: -1;
+}
+
+.link-item a:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.link-item a:hover:before {
+  opacity: 1;
+}
+
+/* Responsive Design - Enhanced mobile buttons */
+@media (max-width: 768px) {
+  .tab-content {
+    padding: 24px 20px;
+    border-width: 5px;
+    border-radius: 0 0 calc(var(--radius) - 5px) calc(var(--radius) - 5px);
+    border-color: var(--primary); /* Ensure border color matches */
+    margin-top: -1px; /* Create overlap with tab */
+  }
+
+  .tabs {
+    border-width: 5px; /* Thinner border on mobile */
+  }
+
+  .tab-headers {
+    padding: 5px 5px 0;
+  }
+
+  .tab-headers button.active {
+    background-color: var(
+      --primary
+    ); /* Ensure tab color matches content border */
+    border-color: var(--primary);
+    border-bottom: none;
+    position: relative;
+    margin-bottom: -1px; /* Pull down to connect with content */
+    z-index: 3; /* Keep tab on top */
+  }
+
+  /* Special handling for active checkout tab */
+  .tab-headers button.active[data-tab="checkout"] {
+    background-color: var(--danger);
+    border-color: var(--danger);
+    margin-bottom: -1px; /* Pull down to connect with content */
+  }
+
+  .header {
+    padding: 12px 0;
+  }
+
+  .header-content {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .language-dropdown {
+    width: 100%;
+  }
+
+  /* Improved tab headers for mobile */
+  .tab-headers {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    gap: 2px;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 2px; /* Slight padding to prevent cut-off shadows */
+  }
+
+  .tab-headers button {
+    padding: 10px 8px;
+    font-size: 12px;
+    min-width: 75px;
+    border-bottom: 1px solid var(--border); /* Add bottom border to inactive tabs */
+  }
+
+  .tab-headers button .tab-icon {
+    font-size: 20px; /* Slightly smaller icon on mobile */
+  }
+
+  .tab-content h2,
+  .checkout-section h2,
+  .direction-chapter h2 {
+    font-size: 18px;
+    padding-bottom: 10px;
+    gap: 8px;
+  }
+
+  .tab-content h2 .tab-icon,
+  .checkout-section h2 .checkout-icon,
+  .direction-chapter h2 .tab-icon {
+    font-size: 20px;
+  }
+
+  .direction-subcategory h3 {
+    font-size: 16px;
+    padding-bottom: 6px;
+  }
+
+  .direction-subcategory h3 .tab-icon {
+    font-size: 18px;
+  }
+
+  .direction-subcategory h3:after {
+    width: 50%;
+    height: 1px;
+  }
+}
+
+.button-group {
+  flex-direction: column;
+}
+
+.button-group button {
+  padding: 14px 20px; /* Increased size */
+  font-size: 16px; /* Increased size */
+}
+
+.image-preview {
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+}
+
+.footer-content {
+  flex-direction: column;
+  text-align: center;
+}
+
+.footer-links {
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Make breakfast item buttons bigger on mobile */
+.breakfast-item button {
+  min-width: 44px;
+  min-height: 44px;
+  padding: 12px;
+}
+
+/* Add more space between text and controls on mobile */
+.breakfast-item {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.breakfast-item-controls {
+  width: 100%;
+  justify-content: flex-end;
+}
+
+/* Make all buttons larger on mobile */
+.check-in-button,
+.checkout-button,
+.breakfast-order-button,
+.map-button {
+  padding: 16px 24px;
+  font-size: 16px;
+}
+
+.link-item {
+  width: 100%;
+}
+
+.link-item a {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+.directions-section {
+  padding: 20px 16px;
+}
+
+.direction-chapter h2 {
+  font-size: 20px;
+}
+
+.direction-subcategory h3 {
+  font-size: 16px;
+}
+
+.checkout-section {
+  padding: 20px 16px;
+}
+
+.checkout-section h2 {
+  font-size: 18px;
+  padding-bottom: 10px;
+}
+
+.checkout-section ul li {
+  padding-left: 26px;
+}
+
+.checkout-button {
+  padding: 14px;
+}
+
+/* For very small screens */
+@media (max-width: 480px) {
+  .tab-headers button {
+    min-width: 70px;
+    padding: 10px 6px;
+    font-size: 11px;
+  }
+
+  /* Keep active tab connected to content */
+  .tab-headers button.active {
+    margin-bottom: -1px;
+  }
+
+  /* Ensure the tab content's top aligns with bottom of tabs */
+  .tab-content {
+    margin-top: -1px;
+  }
+}
